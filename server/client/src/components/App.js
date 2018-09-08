@@ -19,12 +19,13 @@ const AppRoute = ({ component: Component, layout: Layout, ...rest }) => (
 
 const App = () => (
   <div className="container">
-  <Router>
-    <Switch>
-      <AppRoute exact path="/" layout={MainLayout} component={Home} />
-      <Route to="/home" component={Home} />
-    </Switch>
-  </Router>
+    App Hello
+    <Router>
+      <Switch>
+        <AppRoute exact path="/" layout={MainLayout} component={Home} />
+        <Route to="/home" component={Home} />
+      </Switch>
+    </Router>
   </div>
 );
 
