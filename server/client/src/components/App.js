@@ -19,7 +19,6 @@ const AppRoute = ({ component: Component, layout: Layout, ...rest }) => (
 
 const App = () => (
   <div className="container">
-    App Hello
     <Router>
       <Switch>
         <AppRoute exact path="/" layout={MainLayout} component={Home} />
