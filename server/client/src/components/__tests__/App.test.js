@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { shallow } from 'enzyme';
-import App from '../App';
+import App from 'components/App';
 
-it('main render', () => {
+it('renders router', () => {
   const wrapped = shallow(<App />);
 
   expect(wrapped.find(Router).length).toEqual(1);

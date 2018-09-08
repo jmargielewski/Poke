@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import MainLayout from '../layout/MainLayout';
-import Header from '../../components/Header';
+import MainLayout from 'containers/layout/MainLayout';
+import Header from 'components/Header';
 
 it('shows a navigation', () => {
   const wrapped = shallow(<MainLayout />);
