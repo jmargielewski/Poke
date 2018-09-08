@@ -1,21 +1,31 @@
-import React, { Component } from 'react';
+// external
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-class App extends Component {
-  constructor() {
-    super();
+// internals
+import MainLayout from '../containers/layout/MainLayout';
+import Home from './Home';
 
-    this.state = {
-      text: 'App',
-    };
-  }
+const AppRoute = ({ component: Component, layout: Layout, ...rest }) => (
+  <Route
+    {...rest}
+    render = {props => (
+      <Layout>
+        <Component {...props} />
+      </Layout>
+    )}
+  />
+);
 
-  render() {
-    return (
-      <div className="App">
-        <h1>{this.state.text}</h1>
-      </div>
-    );
-  }
-}
+const App = () => (
+  <div className="container">
+  <Router>
+    <Switch>
+      <AppRoute exact path="/" layout={MainLayout} component={Home} />
+      <Route to="/home" component={Home} />
+    </Switch>
+  </Router>
+  </div>
+);
 
 export default App;
