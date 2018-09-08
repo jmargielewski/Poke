@@ -4,6 +4,10 @@
   "main": "index.js",
   "author": "kuba",
   "license": "MIT",
+  "engines": {
+    "node": "8.11.3",
+    "yarn": "1.7.0"
+  },
   "scripts": {
     "start": "node index.js"
   },
