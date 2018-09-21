@@ -22,9 +22,12 @@ passport.use(
       clientID: keys.googleClientID,
       clientSecret: keys.googleClientSecret,
       callbackURL: '/auth/google/callback',
+      proxy: true,
     },
     async (accessToken, refreshToken, profile, done) => {
       const existingUser = await User.findOne({ googleId: profile.id });
+
+      const testCurrentUseer = existingUser ? 'user exist in database' : 'user doesnt exist in the database''
 
       if(existingUser) {
         return done(null, existingUser);
@@ -35,3 +38,5 @@ passport.use(
     }
   )
 );
+
+// TODO: featu3re about existing user in locla data base and checing they with our local user ID
