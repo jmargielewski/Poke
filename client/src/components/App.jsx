@@ -1,31 +1,42 @@
 // external
-import React from 'react';
+import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { connect } from 'react-redux';
+
 
 // internals
 import MainLayout from '../containers/layout/MainLayout';
 import Home from './Home';
+import { fetchUser } from '../redux/actions';
 
-const AppRoute = ({ component: Component, layout: Layout, ...rest }) => (
+const AppRoute = ({ component: ComponentChild, layout: Layout, ...rest }) => (
   <Route
     {...rest}
     render = {props => (
       <Layout>
-        <Component {...props} />
+        <ComponentChild {...props} />
       </Layout>
     )}
   />
 );
 
-const App = () => (
-  <div className="container">
-    <Router>
-      <Switch>
-        <AppRoute exact path="/" layout={MainLayout} component={Home} />
-        <Route exact path="/home" component={Home} />
-      </Switch>
-    </Router>
-  </div>
-);
+class App extends Component {
+  componentDidMount() {
+    this.props.fetchUser();
+  }
 
-export default App;
+  render() {
+    return (
+      <div className="container">
+        <Router>
+          <Switch>
+            <AppRoute exact path="/" layout={MainLayout} component={Home} />
+            <Route exact path="/home" component={Home} />
+          </Switch>
+        </Router>
+      </div>
+    );
+  }
+}
+
+export default connect(null, { fetchUser })(App);
