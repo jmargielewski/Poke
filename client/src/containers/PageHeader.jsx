@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import AppHeader from '../components/AppHeader/AppHeader';
@@ -12,12 +12,12 @@ class PageHeader extends Component {
   );
 
   right = () => [
-    <Link to="/auth/google">
+    <a href="/auth/google" key="1">
       Sign In with Google
-    </Link>,
-    <Link to="/api/logout">
+    </a>,
+    <a href="/api/logout" key="2">
       Logout
-    </Link>,
+    </a>,
   ];
 
   render() {
