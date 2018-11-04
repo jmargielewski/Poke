@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import AppHeader from '../components/AppHeader/AppHeader';
 
 class PageHeader extends Component {
   left = () => (
+      // TODO redirect to dashboard if authenticated
       <Link to="/">
         POKE 2.0
       </Link>
@@ -15,6 +16,7 @@ class PageHeader extends Component {
     <a href="/auth/google" key="1">
       Sign In with Google
     </a>,
+    // TODO render logout btn only if authenticated
     <a href="/api/logout" key="2">
       Logout
     </a>,
