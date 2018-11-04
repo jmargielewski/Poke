@@ -1,26 +1,28 @@
 // external
-import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
-
 
 // internals
 import MainLayout from '../containers/layout/MainLayout';
-import Home from './Home';
+import Dashboard from './Dashboard';
+import Landing from './Landing';
+
+// actions
 import { fetchUser } from '../redux/actions';
 
-const AppRoute = ({ component: ComponentChild, layout: Layout, ...rest }) => (
+const AppRoute = ({ component: Component, layout: Layout, ...rest }) => (
   <Route
     {...rest}
     render = {props => (
       <Layout>
-        <ComponentChild {...props} />
+        <Component {...props} />
       </Layout>
     )}
   />
 );
 
-class App extends Component {
+class App extends React.Component {
   componentDidMount() {
     this.props.fetchUser();
   }
@@ -29,10 +31,10 @@ class App extends Component {
     return (
       <div className="container">
         <Router>
-          <Switch>
-            <AppRoute exact path="/" layout={MainLayout} component={Home} />
-            <Route exact path="/home" component={Home} />
-          </Switch>
+          <div>
+            <AppRoute exact path="/" layout={MainLayout} component={Landing} />
+            <AppRoute path="/dashboard" layout={MainLayout} component={Dashboard} />
+          </div>
         </Router>
       </div>
     );
