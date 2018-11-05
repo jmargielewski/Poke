@@ -1,4 +1,5 @@
 const passport = require('passport');
+const Authentication = require('../controllers/authentication');
 
 module.exports = app => {
   app.get(
@@ -23,4 +24,6 @@ module.exports = app => {
   app.get('/api/current_user', (req, res) => {
       res.send(req.user);
   });
+
+  app.post('/signup', Authentication.signup);
 };

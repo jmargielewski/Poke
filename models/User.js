@@ -1,8 +1,19 @@
+const bcrypt = require('bcrypt-nodejs');
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
-const userSchema = new Schema({
+// GOOGLE USER
+const userGoogleSchema = new Schema({
   googleId: String,
 });
+mongoose.model('userGoogle', userGoogleSchema);
 
-mongoose.model('users', userSchema);
+// USER
+const userSchema = new Schema({
+  email: { type: String, unique: true, lowercase: true },
+  password: String,
+});
+
+userSchema.pre
+const ModelClass = mongoose.model('user', userSchema);
+module.exports = ModelClass;

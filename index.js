@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const passport = require('passport');
 const morgan = require('morgan');
+const bodyParser = require('body-parser');
 const cookieSession = require('cookie-session');
 const keys = require('./config/keys');
 require('./models/User');
@@ -13,6 +14,8 @@ const app = express();
 
 // Morgan - logging incoming request
 app.use(morgan('combined'));
+
+app.use(bodyParser.json({ type: '*/*' }));
 
 app.use(
   cookieSession({
