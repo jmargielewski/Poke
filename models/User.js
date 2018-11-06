@@ -14,6 +14,21 @@ const userSchema = new Schema({
   password: String,
 });
 
-userSchema.pre
+// before the model gets saved
+userSchema.pre('save', function(next) {
+  const user = this;
+
+  bcrypt.genSalt(10, (err, salt) => {
+    if (err) { return next(err); }
+
+    bcrypt.hash(user.password, salt, null, function(err, hash) {
+      if (err) { return next(err); }
+
+      user.password = hash;
+      next();
+    });
+  })
+});
+
 const ModelClass = mongoose.model('user', userSchema);
 module.exports = ModelClass;
