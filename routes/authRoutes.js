@@ -1,5 +1,8 @@
 const passport = require('passport');
 const Authentication = require('../controllers/authentication');
+const passportService = require('../services/passport');
+
+const requireAuth = passport.authenticate('jwt', { session: false });
 
 module.exports = app => {
   app.get(
@@ -22,8 +25,12 @@ module.exports = app => {
   });
 
   app.get('/api/current_user', (req, res) => {
-      res.send(req.user);
+    res.send(req.user);
   });
 
   app.post('/signup', Authentication.signup);
+
+  app.get('/', requireAuth, (req, res) => {
+    res.send({ hello: 'welcome' });
+  });
 };

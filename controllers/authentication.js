@@ -1,6 +1,7 @@
 const jwt = require('jwt-simple');
 const keys = require('../config/keys');
-const User = require('../models/User');
+const mongoose = require('mongoose');
+const User = mongoose.model('user');
 
 function generateToken(user) {
   const timestamp = new Date().getTime();
@@ -32,7 +33,6 @@ exports.signup = (req, res, next) => {
 
       res.json({ token: generateToken(user) });
     });
-
   });
 };
 
