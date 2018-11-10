@@ -2,7 +2,9 @@ const passport = require('passport');
 const Authentication = require('../controllers/authentication');
 const passportService = require('../services/passport');
 
+const requierGoogleAuth = passport.authenticate('google');
 const requireAuth = passport.authenticate('jwt', { session: false });
+const requireSignin = passport.authenticate('local', { session: false });
 
 module.exports = app => {
   app.get(
@@ -13,7 +15,7 @@ module.exports = app => {
   );
 
   app.get('/auth/google/callback',
-    passport.authenticate('google'),
+    requierGoogleAuth,
     (req, res) => {
       res.redirect('/dashboard')
     }
@@ -27,6 +29,8 @@ module.exports = app => {
   app.get('/api/current_user', (req, res) => {
     res.send(req.user);
   });
+
+  app.post('/signin', requireSignin, Authentication.signin);
 
   app.post('/signup', Authentication.signup);
 

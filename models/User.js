@@ -14,6 +14,14 @@ const userSchema = new Schema({
   password: String,
 });
 
+userSchema.methods.comparePassword = function(candidatePassword, callback) {
+  bcrypt.compare(candidatePassword, this.password, (err, isMatch) => {
+    if (err) { return callback(err); }
+
+    callback(null, isMatch);
+  });
+};
+
 // before the model gets saved
 userSchema.pre('save', function(next) {
   const user = this;
