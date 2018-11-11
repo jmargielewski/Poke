@@ -13,11 +13,14 @@ class PageHeader extends Component {
   );
 
   right = () => [
-    <a href="/signup" key="1">
+    <a href="/signup" key="1" style={{ paddingRight: 25 }}>
       Sign up
     </a>,
-    <a href="/signin" key="2">
+    <a href="/signin" key="2" style={{ paddingRight: 25 }}>
       Sign in
+    </a>,
+    <a href="/signout" key="3" style={{ paddingRight: 25 }}>
+      Sign out
     </a>,
   ];
 
