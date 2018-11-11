@@ -30,9 +30,9 @@ module.exports = app => {
     res.send(req.user);
   });
 
-  app.post('/signin', requireSignin, Authentication.signin);
+  app.post('/signIn', requireSignin, Authentication.signin);
 
-  app.post('/signup', Authentication.signup);
+  app.post('/signUp', Authentication.signup);
 
   app.get('/', requireAuth, (req, res) => {
     res.send({ hello: 'welcome' });

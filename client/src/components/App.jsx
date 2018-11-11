@@ -1,15 +1,14 @@
 // external
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { connect } from 'react-redux';
 
 // internals
 import MainLayout from '../containers/layout/MainLayout';
 import Dashboard from './Dashboard';
 import Landing from './Landing';
+import Signup from '../containers/auth/Signup';
+import Signin from '../containers/auth/Signin';
 
-// actions
-import { fetchUser } from '../redux/actions';
 
 const AppRoute = ({ component: Component, layout: Layout, ...rest }) => (
   <Route
@@ -23,10 +22,6 @@ const AppRoute = ({ component: Component, layout: Layout, ...rest }) => (
 );
 
 class App extends React.Component {
-  componentDidMount() {
-    this.props.fetchUser();
-  }
-
   render() {
     return (
       <div className="container">
@@ -34,6 +29,8 @@ class App extends React.Component {
           <div>
             <AppRoute exact path="/" layout={MainLayout} component={Landing} />
             <AppRoute path="/dashboard" layout={MainLayout} component={Dashboard} />
+            <AppRoute path="/signup" layout={MainLayout} component={Signup} />
+            <AppRoute path="/signin" layout={MainLayout} component={Signin} />
           </div>
         </Router>
       </div>
@@ -41,4 +38,4 @@ class App extends React.Component {
   }
 }
 
-export default connect(null, { fetchUser })(App);
+export default App;

@@ -13,12 +13,11 @@ class PageHeader extends Component {
   );
 
   right = () => [
-    <a href="/auth/google" key="1">
-      Sign In with Google
+    <a href="/signup" key="1">
+      Sign up
     </a>,
-    // TODO render logout btn only if authenticated
-    <a href="/api/logout" key="2">
-      Logout
+    <a href="/signin" key="2">
+      Sign in
     </a>,
   ];
 
