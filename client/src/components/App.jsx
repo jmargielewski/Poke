@@ -8,6 +8,7 @@ import Dashboard from './Dashboard';
 import Landing from './Landing';
 import Signup from '../containers/auth/Signup';
 import Signin from '../containers/auth/Signin';
+import Signout from '../containers/auth/Signout';
 
 // hoc
 import RequireAuth from './hoc/RequireAuth';
@@ -33,6 +34,7 @@ class App extends React.Component {
             <AppRoute path="/dashboard" layout={MainLayout} component={RequireAuth(Dashboard)} />
             <AppRoute path="/signup" layout={MainLayout} component={Signup} />
             <AppRoute path="/signin" layout={MainLayout} component={Signin} />
+            <AppRoute path="/signout" layout={MainLayout} component={Signout} />
           </div>
         </Router>
       </div>

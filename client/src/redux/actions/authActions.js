@@ -1,5 +1,10 @@
 import axios from 'axios';
-import { AUTH_USER, AUTH_USER_SUCCESS, AUTH_USER_FAILURE } from './types';
+import {
+  AUTH_USER,
+  AUTH_USER_SUCCESS,
+  AUTH_USER_FAILURE,
+  AUTH_USER_LOGOUT,
+} from './types';
 
 const signupSuccess = response => ({
   type: AUTH_USER_SUCCESS,
@@ -22,4 +27,11 @@ export const signup = (formProps, callback) => async (dispatch) => {
   } catch (e) {
     dispatch(signupFailure(e));
   }
+};
+
+export const signout = () => {
+  localStorage.removeItem('token');
+  return {
+    type: AUTH_USER_LOGOUT,
+  };
 };
