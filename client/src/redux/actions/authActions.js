@@ -11,12 +11,14 @@ const signupFailure = e => ({
   payload: e.response.data.error,
 });
 
-export const signup = formProps => async (dispatch) => {
+export const signup = (formProps, callback) => async (dispatch) => {
   dispatch({ type: AUTH_USER });
   try {
     const response = await axios.post('/signUp', formProps);
 
     dispatch(signupSuccess(response));
+    localStorage.setItem('token', response.data.token);
+    callback();
   } catch (e) {
     dispatch(signupFailure(e));
   }

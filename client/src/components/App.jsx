@@ -9,6 +9,8 @@ import Landing from './Landing';
 import Signup from '../containers/auth/Signup';
 import Signin from '../containers/auth/Signin';
 
+// hoc
+import RequireAuth from './hoc/RequireAuth';
 
 const AppRoute = ({ component: Component, layout: Layout, ...rest }) => (
   <Route
@@ -28,7 +30,7 @@ class App extends React.Component {
         <Router>
           <div>
             <AppRoute exact path="/" layout={MainLayout} component={Landing} />
-            <AppRoute path="/dashboard" layout={MainLayout} component={Dashboard} />
+            <AppRoute path="/dashboard" layout={MainLayout} component={RequireAuth(Dashboard)} />
             <AppRoute path="/signup" layout={MainLayout} component={Signup} />
             <AppRoute path="/signin" layout={MainLayout} component={Signin} />
           </div>
