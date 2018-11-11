@@ -4,11 +4,12 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 // internals
 import MainLayout from '../containers/layout/MainLayout';
-import Dashboard from './Dashboard';
-import Landing from './Landing';
 import Signup from '../containers/auth/Signup';
 import Signin from '../containers/auth/Signin';
 import Signout from '../containers/auth/Signout';
+
+import Dashboard from './Dashboard';
+import Landing from './Landing';
 
 // hoc
 import RequireAuth from './hoc/RequireAuth';

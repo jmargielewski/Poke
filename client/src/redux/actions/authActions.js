@@ -29,6 +29,19 @@ export const signup = (formProps, callback) => async (dispatch) => {
   }
 };
 
+export const signin = (formProps, callback) => async (dispatch) => {
+  dispatch({ type: AUTH_USER });
+  try {
+    const response = await axios.post('/signIn', formProps);
+
+    dispatch(signupSuccess(response));
+    localStorage.setItem('token', response.data.token);
+    callback();
+  } catch (e) {
+    dispatch(signupFailure(e));
+  }
+};
+
 export const signout = () => {
   localStorage.removeItem('token');
   return {
