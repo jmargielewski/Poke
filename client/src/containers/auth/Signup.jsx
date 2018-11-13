@@ -15,7 +15,8 @@ class Signup extends Component {
     const { handleSubmit } = this.props;
     return (
       <form onSubmit={handleSubmit(this.onSubmit)}>
-        Sign Up Page
+        <h2>Sign Up Page</h2>
+        <div><a href="auth/google">Sign in with Google</a></div>
         <fieldset>
           <label>Email</label>
           <Field

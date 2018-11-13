@@ -15,7 +15,7 @@ class Signin extends Component {
     const { handleSubmit } = this.props;
     return (
       <form onSubmit={handleSubmit(this.onSubmit)}>
-        Sign In Page
+        <h2>Sign In Page</h2>
         <fieldset>
           <label>Email</label>
           <Field
