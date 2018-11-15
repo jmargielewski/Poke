@@ -1,10 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import MainLayout from './containers/layout/MainLayout';
-import Header from './components/Header';
+import MainLayout from 'containers/layout/MainLayout';
+import PageHeader from 'containers/PageHeader';
 
-it('shows a navigation', () => {
+it('shows a page\'s header', () => {
   const wrapped = shallow(<MainLayout />);
 
-  expect(wrapped.find(Header).length).toEqual(1);
+  expect(wrapped.find(PageHeader).length).toEqual(1);
 });
