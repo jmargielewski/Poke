@@ -1,17 +1,16 @@
 // external
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
 
 // internals
-import store from './redux/store';
 import App from './components/App';
+import Root from './Root';
 
 require('./styles/main.scss');
 
 ReactDOM.render(
-  <Provider store={store}>
+  <Root>
     <App />
-  </Provider>,
+  </Root>,
   document.getElementById('root'),
 );
