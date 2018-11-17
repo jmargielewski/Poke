@@ -5,7 +5,7 @@ import {
   AUTH_USER_LOGOUT,
 } from '../actions/types';
 
-const INITIAL_STATE = {
+export const INITIAL_STATE = {
   loading: false,
   authenticated: '',
   errorMessage: '',
