@@ -9,6 +9,7 @@ import { registerFormFields } from './formFields';
 
 // components
 import Input from '../../components/Input/Input';
+import ButtonGoogle from '../../components/ButtonGoogle/ButtonGoogle';
 
 class Signup extends Component {
   onSubmit = (formProps) => {
@@ -35,7 +36,7 @@ class Signup extends Component {
     return (
       <div>
         <h2>Sign Up Page</h2>
-        <div><a href="auth/google">Sign in with Google</a></div>
+        <ButtonGoogle />
         <form onSubmit={handleSubmit(this.onSubmit)}>
           {this.renderFormFields()}
           <div>{this.props.errorMessage}</div>
