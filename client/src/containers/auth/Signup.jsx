@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
-import _ from 'lodash';
+import { map } from 'lodash';
 
 import * as actions from '../../redux/actions';
 import { registerFormFields } from './formFields';
 
+// components
 import Input from '../../components/Input/Input';
 
 class Signup extends Component {
@@ -17,7 +18,7 @@ class Signup extends Component {
   };
 
   renderFormFields = () => (
-    _.map(registerFormFields, ({ name, label, type }) => (
+    map(registerFormFields, ({ name, label, type }) => (
       <Field
         key={name}
         name={name}
@@ -32,13 +33,15 @@ class Signup extends Component {
   render() {
     const { handleSubmit } = this.props;
     return (
-      <form onSubmit={handleSubmit(this.onSubmit)}>
+      <div>
         <h2>Sign Up Page</h2>
         <div><a href="auth/google">Sign in with Google</a></div>
-        {this.renderFormFields()}
-        <div>{this.props.errorMessage}</div>
-        <button>Sign Up!</button>
-      </form>
+        <form onSubmit={handleSubmit(this.onSubmit)}>
+          {this.renderFormFields()}
+          <div>{this.props.errorMessage}</div>
+          <button>Sign Up!</button>
+        </form>
+      </div>
     );
   }
 }

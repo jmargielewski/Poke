@@ -2,43 +2,47 @@ import React, { Component } from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
+import { map } from 'lodash';
+
 import * as actions from '../../redux/actions';
+import { loginFormFields } from './formFields';
+
+// components
+import Input from '../../components/Input/Input';
 
 class Signin extends Component {
+  renderFormFields = () => (
+    map(loginFormFields, ({ name, label, type }) => (
+      <Field
+        key={name}
+        name={name}
+        type={type}
+        label={label}
+        component={Input}
+        autoComplete="none"
+      />
+    ))
+  );
+
+  render() {
+    const { handleSubmit } = this.props;
+    return (
+      <div>
+        <h2>Sign In Page</h2>
+        <form onSubmit={handleSubmit(this.onSubmit)}>
+          {this.renderFormFields()}
+          <div>{this.props.errorMessage}</div>
+          <button>Sign In!</button>
+        </form>
+      </div>
+    );
+  }
+
   onSubmit = (formProps) => {
     this.props.signin(formProps, () => {
       this.props.history.push('/dashboard');
     });
   };
-
-  render() {
-    const { handleSubmit } = this.props;
-    return (
-      <form onSubmit={handleSubmit(this.onSubmit)}>
-        <h2>Sign In Page</h2>
-        <fieldset>
-          <label>Email</label>
-          <Field
-            name="email"
-            type="text"
-            component="input"
-            autoComplete="none"
-          />
-        </fieldset>
-        <fieldset>
-          <label>Password</label>
-          <Field
-            name="password"
-            type="password"
-            component="input"
-            autoComplete="none"
-          />
-        </fieldset>
-        <div>{this.props.errorMessage}</div>
-        <button>Sign In!</button>
-      </form>
-    );
-  }
 }
 
 const mapStateToProps = state => ({
