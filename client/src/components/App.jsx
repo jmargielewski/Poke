@@ -28,17 +28,15 @@ const AppRoute = ({ component: Component, layout: Layout, ...rest }) => (
 class App extends React.Component {
   render() {
     return (
-      <div className="container">
-        <Router>
-          <div>
-            <AppRoute exact path="/" layout={MainLayout} component={Landing} />
-            <AppRoute path="/dashboard" layout={MainLayout} component={RequireAuth(Dashboard)} />
-            <AppRoute path="/signup" layout={MainLayout} component={Signup} />
-            <AppRoute path="/signin" layout={MainLayout} component={Signin} />
-            <AppRoute path="/signout" layout={MainLayout} component={Signout} />
-          </div>
-        </Router>
-      </div>
+      <Router>
+        <div className="app">
+          <AppRoute exact path="/" layout={MainLayout} component={Landing} />
+          <AppRoute path="/dashboard" layout={MainLayout} component={RequireAuth(Dashboard)} />
+          <AppRoute path="/signup" layout={MainLayout} component={Signup} />
+          <AppRoute path="/signin" layout={MainLayout} component={Signin} />
+          <AppRoute path="/signout" layout={MainLayout} component={Signout} />
+        </div>
+      </Router>
     );
   }
 }

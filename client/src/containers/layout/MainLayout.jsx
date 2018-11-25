@@ -1,14 +1,15 @@
 import React, { PureComponent } from 'react';
 import PageHeader from '../PageHeader';
+import { Container } from './Grid';
 
 class MainLayout extends PureComponent {
   render() {
     return (
       <div id="main-layout">
         <PageHeader />
-        <div id="main-layout-body">
+        <Container id="main-layout-body">
           {this.props.children}
-        </div>
+        </Container>
       </div>
     );
   }
