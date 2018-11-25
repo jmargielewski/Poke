@@ -8,6 +8,7 @@ import * as actions from '../../redux/actions';
 import { registerFormFields } from './formFields';
 
 // components
+import { Row, Col } from '../layout/Grid';
 import Input from '../../components/Input/Input';
 import ButtonGoogle from '../../components/ButtonGoogle/ButtonGoogle';
 
@@ -34,15 +35,17 @@ class Signup extends Component {
   render() {
     const { handleSubmit } = this.props;
     return (
-      <div>
-        <h2>Sign Up Page</h2>
-        <ButtonGoogle />
-        <form onSubmit={handleSubmit(this.onSubmit)}>
-          {this.renderFormFields()}
-          <div>{this.props.errorMessage}</div>
-          <button>Sign Up!</button>
-        </form>
-      </div>
+      <Row>
+        <Col xs={12} sm={12} md={12} lg={12}>
+          <h2>Sign Up Page</h2>
+          <ButtonGoogle />
+          <form onSubmit={handleSubmit(this.onSubmit)}>
+            {this.renderFormFields()}
+            <div>{this.props.errorMessage}</div>
+            <button>Sign Up!</button>
+          </form>
+        </Col>
+      </Row>
     );
   }
 }

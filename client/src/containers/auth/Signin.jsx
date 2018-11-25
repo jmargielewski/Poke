@@ -8,6 +8,7 @@ import * as actions from '../../redux/actions';
 import { loginFormFields } from './formFields';
 
 // components
+import { Col, Row } from '../layout/Grid';
 import Input from '../../components/Input/Input';
 
 class Signin extends Component {
@@ -27,14 +28,16 @@ class Signin extends Component {
   render() {
     const { handleSubmit } = this.props;
     return (
-      <div>
-        <h2>Sign In Page</h2>
-        <form onSubmit={handleSubmit(this.onSubmit)}>
-          {this.renderFormFields()}
-          <div>{this.props.errorMessage}</div>
-          <button>Sign In!</button>
-        </form>
-      </div>
+      <Row>
+        <Col xs={12} sm={12} md={12} lg={12}>
+          <h2>Sign In Page</h2>
+          <form onSubmit={handleSubmit(this.onSubmit)}>
+            {this.renderFormFields()}
+            <div>{this.props.errorMessage}</div>
+            <button>Sign In!</button>
+          </form>
+        </Col>
+      </Row>
     );
   }
 
