@@ -10,8 +10,7 @@ import { registerFormFields } from './formFields';
 // components
 import { Row, Col } from '../layout/Grid';
 import Input from '../../components/Input/Input';
-import Button from '../../components/Button/Button';
-import ButtonGoogle from '../../components/ButtonGoogle/ButtonGoogle';
+import RegistrationForm from '../../components/Forms/RegistrationForm';
 
 class Signup extends Component {
   onSubmit = (formProps) => {
@@ -34,18 +33,28 @@ class Signup extends Component {
   );
 
   render() {
-    const { handleSubmit } = this.props;
+    const {
+      onSubmit,
+      renderFormFields,
+      props: {
+        handleSubmit,
+        errorMessage,
+      },
+    } = this;
+
+    const registrationProps = {
+      handleSubmit,
+      errorMessage,
+      onSubmit,
+      renderFormFields,
+    };
+
     return (
       <Row>
         <Col xs={12} sm={12} md={12} lg={12}>
           <div>
             <h2>Sign Up Page</h2>
-            <ButtonGoogle />
-            <form onSubmit={handleSubmit(this.onSubmit)}>
-              {this.renderFormFields()}
-              <div>{this.props.errorMessage}</div>
-              <Button text="Sign Up" />
-            </form>
+            <RegistrationForm {...registrationProps} />
           </div>
         </Col>
       </Row>
