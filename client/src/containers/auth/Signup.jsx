@@ -7,10 +7,19 @@ import { map } from 'lodash';
 import * as actions from '../../redux/actions';
 import { registerFormFields } from './formFields';
 
-// components
+// layout component
 import { Row, Col } from '../layout/Grid';
+import {
+  AuthWrap,
+  AuthHeader,
+  AuhtHeaderTitle,
+  AuthBody,
+} from './authStyles';
+
+// components
 import Input from '../../components/Input/Input';
 import RegistrationForm from '../../components/Forms/RegistrationForm';
+
 
 class Signup extends Component {
   onSubmit = (formProps) => {
@@ -52,10 +61,14 @@ class Signup extends Component {
     return (
       <Row>
         <Col xs={12} sm={12} md={12} lg={12}>
-          <div>
-            <h2>Sign Up Page</h2>
-            <RegistrationForm {...registrationProps} />
-          </div>
+          <AuthWrap>
+            <AuthHeader>
+              <AuhtHeaderTitle>Sign Up Page</AuhtHeaderTitle>
+            </AuthHeader>
+            <AuthBody>
+              <RegistrationForm {...registrationProps} />
+            </AuthBody>
+          </AuthWrap>
         </Col>
       </Row>
     );

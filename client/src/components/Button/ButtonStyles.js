@@ -8,10 +8,10 @@ export const Button = styled.button`
   cursor: pointer;
   padding-left: 20px;
   padding-right: 20px;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .25);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .25);
   transition: box-shadow .218s;
   &:hover {
-    box-shadow: 0 0 2px 2px rgba(66, 133, 244, .3);
+    box-shadow: 0 0 3px 3px rgba(66, 133, 244, .3);
   }
   ${({ outlined }) => outlined && `
     background-image: none;

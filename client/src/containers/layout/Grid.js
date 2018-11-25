@@ -26,7 +26,6 @@ const Col = styled.div`
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
-  border: 1px solid red;
   
   ${({ xs }) => xs ? getWidthStrings(xs) : 'width: 100%'}
   
