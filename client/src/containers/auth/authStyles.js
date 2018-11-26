@@ -1,4 +1,5 @@
 import styled, { keyframes } from 'styled-components';
+import { deepCerulean, smallShadow } from '../../constants/colors';
 
 const fallingDown = keyframes`
   0% {
@@ -20,14 +21,14 @@ const fallingDown = keyframes`
 
 const AuthWrap = styled.div`
   width: 400px;
-  background: white;
+  background: #fff;
   margin: 50px auto;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .25);
+  box-shadow: ${smallShadow};
   animation: ${fallingDown} 1s ease-out 1;
 `;
 
 const AuthHeader = styled.div`
-  background: #4285f4;
+  background: ${deepCerulean};
   padding: 50px;
 `;
 
