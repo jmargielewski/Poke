@@ -7,11 +7,26 @@ import { map } from 'lodash';
 import * as actions from '../../redux/actions';
 import { loginFormFields } from './formFields';
 
-// components
+// layout components
 import { Col, Row } from '../layout/Grid';
+import {
+  AuthWrap,
+  AuthHeader,
+  AuhtHeaderTitle,
+  AuthBody,
+} from './authStyles';
+
+// components
 import Input from '../../components/Input/Input';
+import LoginForm from '../../components/Forms/LoginForm';
 
 class Signin extends Component {
+  onSubmit = (formProps) => {
+    this.props.signin(formProps, () => {
+      this.props.history.push('/dashboard');
+    });
+  };
+
   renderFormFields = () => (
     map(loginFormFields, ({ name, label, type }) => (
       <Field
@@ -26,26 +41,37 @@ class Signin extends Component {
   );
 
   render() {
-    const { handleSubmit } = this.props;
+    const {
+      onSubmit,
+      renderFormFields,
+      props: {
+        handleSubmit,
+        errorMessage,
+      },
+    } = this;
+
+    const loginProps = {
+      onSubmit,
+      renderFormFields,
+      handleSubmit,
+      errorMessage,
+    };
+
     return (
       <Row>
         <Col xs={12} sm={12} md={12} lg={12}>
-          <h2>Sign In Page</h2>
-          <form onSubmit={handleSubmit(this.onSubmit)}>
-            {this.renderFormFields()}
-            <div>{this.props.errorMessage}</div>
-            <button>Sign In!</button>
-          </form>
+          <AuthWrap>
+            <AuthHeader>
+              <AuhtHeaderTitle>Sign In Page</AuhtHeaderTitle>
+            </AuthHeader>
+            <AuthBody>
+              <LoginForm {...loginProps} />
+            </AuthBody>
+          </AuthWrap>
         </Col>
       </Row>
     );
   }
-
-  onSubmit = (formProps) => {
-    this.props.signin(formProps, () => {
-      this.props.history.push('/dashboard');
-    });
-  };
 }
 
 const mapStateToProps = state => ({
