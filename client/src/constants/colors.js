@@ -2,9 +2,10 @@
 export const firebrick = '#b22221';
 export const deepCerulean = '#4285f4';
 export const deepCeruleanActive = '#3367d6';
-// export const tundra = '#424250';
-// export const mineShaft = '#33333D';
-// export const codGray = '#26282f';
+export const mineShaft = '#e5e5e5';
+export const shaft = '#919196';
+export const tundra = '#424250';
+export const codGray = '#26282f';
 
 // shadows
 export const smallShadow = '0 2px 4px 0 rgba(0, 0, 0, .25)';
