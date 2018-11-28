@@ -1,5 +1,10 @@
 import styled from 'styled-components';
-import { tundra, codGray, mineShaft, shaft } from '../../constants/colors';
+import {
+  tundra,
+  codGray,
+  mineShaft,
+  shaft,
+} from '../../constants/colors';
 
 const InputWrap = styled.div`
   background-color: #fff;
@@ -12,7 +17,6 @@ const InputWrap = styled.div`
   display: inline-block;
   position: relative;
 `;
-
 
 const Label = styled.label`
   color: ${codGray};
@@ -33,6 +37,14 @@ const Input = styled.input`
   border: none;
   outline: none;
   padding-top: 10px;
+  & ~ ${Label} {
+    ${({ value }) => value && {
+    fontSize: '12px',
+    color: `${shaft}`,
+    top: '9px',
+    transform: 'translateY(0)',
+  }}
+  }
   &:focus ~ ${Label} {
     font-size: 12px;
     color: ${shaft};
@@ -40,4 +52,5 @@ const Input = styled.input`
     transform: translateY(0);
   }
 `;
+
 export { InputWrap, Input, Label };

@@ -18,7 +18,6 @@ const fallingDown = keyframes`
   }
 `;
 
-
 const AuthWrap = styled.div`
   width: 400px;
   background: #fff;
