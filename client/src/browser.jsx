@@ -1,16 +1,18 @@
 // external
-import React from 'react';
+import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
 
 // internals
-import App from './components/App';
 import Root from './Root';
-
-require('./styles/main.scss');
+import App from './components/App';
+import GlobalStyle from './styles/global';
 
 ReactDOM.render(
   <Root>
-    <App />
+    <Fragment>
+      <App />
+      <GlobalStyle />
+    </Fragment>
   </Root>,
   document.getElementById('root'),
 );

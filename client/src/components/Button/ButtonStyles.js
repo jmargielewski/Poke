@@ -11,6 +11,7 @@ export const Button = styled.button`
   background-color: ${deepCerulean};
   border: none;
   cursor: pointer;
+  outline: none;
   padding-left: 20px;
   padding-right: 20px;
   box-shadow: ${smallShadow};
