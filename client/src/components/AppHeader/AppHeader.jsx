@@ -1,16 +1,16 @@
 import React from 'react';
-import BEMHelper from 'react-bem-helper';
-import { Header } from './AppHeaderStyles';
-
-import './appHeader.scss';
-
-const bem = BEMHelper('app-header');
+import {
+  Header,
+  Navigation,
+  NavLeft,
+  NavRight,
+} from './AppHeaderStyles';
 
 export default ({ leftPart, rightPart }) => (
   <Header>
-    <nav {...bem('container')}>
-      <div {...bem('left')}>{leftPart}</div>
-      <div {...bem('right')}>{rightPart}</div>
-    </nav>
+    <Navigation>
+      <NavLeft>{leftPart}</NavLeft>
+      <NavRight>{rightPart}</NavRight>
+    </Navigation>
   </Header>
 );
