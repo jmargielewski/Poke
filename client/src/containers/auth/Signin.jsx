@@ -6,6 +6,7 @@ import { map } from 'lodash';
 
 import * as actions from '../../redux/actions';
 import { loginFormFields } from './formFields';
+import { isRequire } from '../../utils/validation/validation';
 
 // layout components
 import { Col, Row } from '../layout/Grid';
@@ -35,6 +36,7 @@ class Signin extends Component {
         type={type}
         label={label}
         component={Input}
+        validate={[isRequire]}
         autoComplete="none"
       />
     ))

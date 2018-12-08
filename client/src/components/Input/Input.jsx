@@ -1,5 +1,10 @@
 import React from 'react';
-import { InputWrap, Input as Inp, Label } from './InputStyles';
+import {
+  InputWrap,
+  Input as Inp,
+  Label,
+  Error,
+} from './InputStyles';
 
 const Input = ({
   label,
@@ -9,10 +14,10 @@ const Input = ({
     error,
   },
 }) => (
-  <InputWrap>
+  <InputWrap error={touched && error}>
     <Inp {...input} />
     <Label>{label}</Label>
-    <div>{touched && error}</div>
+    <Error>{touched && error}</Error>
   </InputWrap>
 );
 

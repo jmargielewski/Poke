@@ -4,13 +4,15 @@ import {
   codGray,
   mineShaft,
   shaft,
+  firebrick,
 } from '../../constants/colors';
 
 const InputWrap = styled.div`
   background-color: #fff;
   width: 100%;
   height: 60px;
-  border: 2px solid ${mineShaft};
+  border: 2px solid;
+  border-color: ${({ error }) => error ? firebrick : mineShaft};
   border-radius: 2px;
   padding: 9px 20px 2px;
   margin-bottom: 30px;
@@ -53,4 +55,16 @@ const Input = styled.input`
   }
 `;
 
-export { InputWrap, Input, Label };
+const Error = styled.div`
+  color: ${firebrick};
+  padding-top: 5px;
+  margin-left: -20px;
+  font-size: 12px;
+`;
+
+export {
+  InputWrap,
+  Input,
+  Label,
+  Error,
+};
