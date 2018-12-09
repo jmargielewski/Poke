@@ -1,4 +1,9 @@
-import { isRequire, validateEmail } from '../../utils/validation/validation';
+import {
+  isRequire,
+  validateEmail,
+  matchesPassword,
+  isNumber,
+} from '../../utils/validation/validation';
 
 export const loginFormFields = [
   {
@@ -29,7 +34,12 @@ export const registerFormFields = [
   {
     name: 'telephone',
     label: 'Telephone(optional)',
-    validation: [isRequire],
+    validation: [isNumber],
+  },
+  {
+    name: 'email',
+    label: 'Email',
+    validation: [isRequire, validateEmail],
   },
   {
     name: 'password',
@@ -39,6 +49,6 @@ export const registerFormFields = [
   {
     name: 'confirmPassword',
     label: 'Repeat password',
-    validation: [isRequire],
+    validation: [isRequire, matchesPassword],
   },
 ];
