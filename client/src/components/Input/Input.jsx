@@ -17,7 +17,7 @@ const Input = ({
   <InputWrap error={touched && error}>
     <Inp {...input} />
     <Label>{label}</Label>
-    <Error>{touched && error}</Error>
+    {(touched && error) && <Error>{error}</Error>}
   </InputWrap>
 );
 

@@ -4,15 +4,16 @@ import {
   codGray,
   mineShaft,
   shaft,
-  firebrick,
+  brightRed,
+  brightPink,
 } from '../../constants/colors';
 
 const InputWrap = styled.div`
-  background-color: #fff;
+  background-color: #fff; {/*${({ error }) => error ? brightPink : '#fff'};*/}
   width: 100%;
   height: 60px;
-  border: 2px solid;
-  border-color: ${({ error }) => error ? firebrick : mineShaft};
+  border: 2px solid ${mineShaft};
+  border-bottom-color: ${({ error }) => error ? brightRed : mineShaft};
   border-radius: 2px;
   padding: 9px 20px 2px;
   margin-bottom: 30px;
@@ -24,21 +25,23 @@ const Label = styled.label`
   color: ${codGray};
   font-size: 16px;
   position: absolute;
-  top: 10px;
+  top: 21px;
   left: 20px;
-  transform: translateY(7px);
   transition: all 0.30s;
   text-transform: none;
 `;
 
 const Input = styled.input`
   color: ${tundra};
+  background: transparent;
   width:100%;
   height:100%;
   font-size: 16px;
   border: none;
   outline: none;
   padding-top: 10px;
+  position: relative;
+  z-index: 1;
   & ~ ${Label} {
     ${({ value }) => value && {
     fontSize: '12px',
@@ -56,7 +59,7 @@ const Input = styled.input`
 `;
 
 const Error = styled.div`
-  color: ${firebrick};
+  color: ${brightRed};
   padding-top: 5px;
   margin-left: -20px;
   font-size: 12px;
