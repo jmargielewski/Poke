@@ -8,15 +8,13 @@ const RegistrationForm = ({
   renderFormFields,
   onSubmit,
   errorMessage,
-}) => {
-  return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <ButtonGoogle />
-      {renderFormFields()}
-      <div>{errorMessage}</div>
-      <Button text="Sign Up" />
-    </form>
-  );
-};
+}) => (
+  <form onSubmit={handleSubmit(onSubmit)}>
+    <ButtonGoogle />
+    {renderFormFields()}
+    {errorMessage && <div>{errorMessage}</div>}
+    <Button text="Sign Up" />
+  </form>
+);
 
 export default RegistrationForm;

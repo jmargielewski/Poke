@@ -6,7 +6,10 @@ import { map } from 'lodash';
 
 import * as actions from '../../redux/actions';
 import { loginFormFields } from './formFields';
-import { isRequire } from '../../utils/validation/validation';
+
+// components
+import Input from '../../components/Input/Input';
+import LoginForm from '../../components/Forms/LoginForm';
 
 // layout components
 import { Col, Row } from '../layout/Grid';
@@ -17,9 +20,6 @@ import {
   AuthBody,
 } from './authStyles';
 
-// components
-import Input from '../../components/Input/Input';
-import LoginForm from '../../components/Forms/LoginForm';
 
 class Signin extends Component {
   onSubmit = (formProps) => {
@@ -29,14 +29,19 @@ class Signin extends Component {
   };
 
   renderFormFields = () => (
-    map(loginFormFields, ({ name, label, type }) => (
+    map(loginFormFields, ({
+      name,
+      label,
+      type,
+      validation,
+    }) => (
       <Field
         key={name}
         name={name}
         type={type}
         label={label}
         component={Input}
-        validate={[isRequire]}
+        validate={validation}
         autoComplete="none"
       />
     ))

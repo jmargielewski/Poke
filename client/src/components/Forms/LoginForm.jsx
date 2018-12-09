@@ -6,14 +6,12 @@ const LoginForm = ({
   renderFormFields,
   handleSubmit,
   errorMessage,
-}) => {
-  return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      {renderFormFields()}
-      <div>{errorMessage}</div>
-      <Button text="Sign In" />
-    </form>
-  );
-};
+}) => (
+  <form onSubmit={handleSubmit(onSubmit)}>
+    {renderFormFields()}
+    {errorMessage && <div>{errorMessage}</div>}
+    <Button text="Sign In" />
+  </form>
+);
 
 export default LoginForm;

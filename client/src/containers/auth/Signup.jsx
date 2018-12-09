@@ -29,13 +29,19 @@ class Signup extends Component {
   };
 
   renderFormFields = () => (
-    map(registerFormFields, ({ name, label, type }) => (
+    map(registerFormFields, ({
+      name,
+      label,
+      type,
+      validation,
+    }) => (
       <Field
         key={name}
         name={name}
         type={type}
         label={label}
         component={Input}
+        validate={validation}
         autoComplete="none"
       />
     ))
