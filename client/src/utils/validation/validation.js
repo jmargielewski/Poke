@@ -13,7 +13,7 @@ const matchesPassword = (value, bothValues) => (
 );
 
 const isNumber = value => (
-  (!PHONE_REGEXP.test(value) ? 'Phone number is invalid' : undefined )
+  (!PHONE_REGEXP.test(value) ? 'Phone number is invalid' : undefined)
 );
 
 export {

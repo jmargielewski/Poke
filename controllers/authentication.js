@@ -15,9 +15,16 @@ exports.signin = (req, res, next) => {
 exports.signup = (req, res, next) => {
   const email = req.body.email;
   const password = req.body.password;
+  const name = req.body.name;
+  const surname = req.body.surname;
+  const telephone = req.body.telephone || '';
 
   if (!email || !password) {
     return res.status(422).send({ error: 'You must provide email and password' });
+  }
+
+  if (!name || !surname) {
+    return res.status(422).send({ error: 'You must provide name and surname' });
   }
 
   User.findOne({ email: email }, (err, existingUser) => {
@@ -29,7 +36,10 @@ exports.signup = (req, res, next) => {
 
     const user = new User({
       email: email,
-      password: password
+      password: password,
+      name: name,
+      surname: surname,
+      telephone: telephone,
     });
 
     user.save((err) => {

@@ -1,5 +1,7 @@
 import React from 'react';
+
 import Button from '../Button/Button';
+import { Error } from '../Input/InputStyles';
 
 const LoginForm = ({
   onSubmit,
@@ -9,7 +11,7 @@ const LoginForm = ({
 }) => (
   <form onSubmit={handleSubmit(onSubmit)}>
     {renderFormFields()}
-    {errorMessage && <div>{errorMessage}</div>}
+    {errorMessage && <Error>{errorMessage}</Error>}
     <Button text="Sign In" />
   </form>
 );

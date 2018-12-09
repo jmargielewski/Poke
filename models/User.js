@@ -12,6 +12,9 @@ mongoose.model('userGoogle', userGoogleSchema);
 const userSchema = new Schema({
   email: { type: String, unique: true, lowercase: true },
   password: String,
+  name: String,
+  surname: String,
+  telephone: String,
 });
 
 userSchema.methods.comparePassword = function(candidatePassword, callback) {

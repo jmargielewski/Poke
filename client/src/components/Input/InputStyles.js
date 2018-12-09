@@ -58,11 +58,10 @@ const Input = styled.input`
   }
 `;
 
-const Error = styled.div`
+const Error = styled.p`
   color: ${brightRed};
   padding-top: 5px;
-  margin-left: -20px;
-  font-size: 12px;
+  font-size: 13px;
 `;
 
 export {

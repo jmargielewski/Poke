@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Button from '../Button/Button';
+import { Error } from '../Input/InputStyles';
 import ButtonGoogle from '../ButtonGoogle/ButtonGoogle';
 
 const RegistrationForm = ({
@@ -12,7 +13,7 @@ const RegistrationForm = ({
   <form onSubmit={handleSubmit(onSubmit)}>
     <ButtonGoogle />
     {renderFormFields()}
-    {errorMessage && <div>{errorMessage}</div>}
+    {errorMessage && <Error>{errorMessage}</Error>}
     <Button text="Sign Up" />
   </form>
 );
