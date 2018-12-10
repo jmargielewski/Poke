@@ -19,7 +19,7 @@ export const GoogleButton = styled.div`
   border: none;
   color: #fff;
   text-align: center;
-  margin: 0 auto;
+  margin: 0 auto 30px auto;
   &:hover {
     box-shadow: ${hoverButtonShadow};
   }
