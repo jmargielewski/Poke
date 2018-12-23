@@ -12,7 +12,8 @@
     "start": "node index.js",
     "server": "nodemon index.js",
     "client": "yarn --cwd client start",
-    "dev": "concurrently -r -k \"yarn client\" \"yarn server\""
+    "dev": "concurrently -r -k \"yarn client\" \"yarn server\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false yarn install --prefix client && yarn run build --prefix client"
   },
   "dependencies": {
     "bcrypt-nodejs": "^0.0.3",
