@@ -5,6 +5,7 @@ import {
   AUTH_USER_FAILURE,
   AUTH_USER_LOGOUT,
 } from './types';
+import { setToken, removeToken } from '../../app/token';
 
 const signupSuccess = response => ({
   type: AUTH_USER_SUCCESS,
@@ -22,7 +23,7 @@ export const signup = (formProps, callback) => async (dispatch) => {
     const response = await axios.post('/signUp', formProps);
 
     dispatch(signupSuccess(response));
-    localStorage.setItem('token', response.data.token);
+    setToken(response.data.token);
     callback();
   } catch (e) {
     dispatch(signupFailure(e));
@@ -35,7 +36,7 @@ export const signin = (formProps, callback) => async (dispatch) => {
     const response = await axios.post('/signIn', formProps);
 
     dispatch(signupSuccess(response));
-    localStorage.setItem('token', response.data.token);
+    setToken(response.data.token);
     callback();
   } catch (e) {
     dispatch(signupFailure(e));
@@ -43,7 +44,7 @@ export const signin = (formProps, callback) => async (dispatch) => {
 };
 
 export const signout = () => {
-  localStorage.removeItem('token');
+  removeToken();
   return {
     type: AUTH_USER_LOGOUT,
   };

@@ -6,13 +6,14 @@ import {
 } from 'redux';
 import reduxThunk from 'redux-thunk';
 import reducer from './reducers';
+import { getToken } from '../app/token';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(
   reducer,
   {
-    auth: { authenticated: localStorage.getItem('token') },
+    auth: { authenticated: getToken() },
   },
   composeEnhancers(applyMiddleware(reduxThunk)),
 );
