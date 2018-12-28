@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import AppHeader from '../components/AppHeader/AppHeader';
+import LanguageChooser from './LanguageChooser/LanguageChooser';
 
 class PageHeader extends Component {
   left = () => (
@@ -15,6 +16,7 @@ class PageHeader extends Component {
     if (this.props.authenticated) {
       return (
         <Fragment>
+          <LanguageChooser />
           <Link style={{ paddingRight: 25 }} to="/dashboard">Dashboard</Link>
           <Link style={{ paddingRight: 25 }} to="/signout">Sign Out</Link>
         </Fragment>
