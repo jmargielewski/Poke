@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import { firebrick } from '../../constants/colors';
+import { tundraNight } from '../../constants/colors';
 
 const Header = styled.header`
   line-height: 75px;
-  background: ${firebrick};
+  background: ${tundraNight};
 `;
 
 const Navigation = styled.nav`

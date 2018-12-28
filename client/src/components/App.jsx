@@ -8,7 +8,7 @@ import Signup from '../containers/auth/Signup';
 import Signin from '../containers/auth/Signin';
 import Signout from '../containers/auth/Signout';
 
-import Dashboard from './Dashboard';
+import Dashboard from '../containers/Dashboard/Dashboard';
 import Landing from './Landing';
 
 // hoc
