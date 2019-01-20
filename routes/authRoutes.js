@@ -34,7 +34,7 @@ module.exports = app => {
 
   app.post('/signUp', Authentication.signup);
 
-  app.get('/', requireAuth, (req, res) => {
-    res.send({ hello: 'welcome' });
-  });
+  // app.get('/', requireAuth, (req, res) => {
+  //   res.send({ hello: 'welcome' });
+  // });
 };
